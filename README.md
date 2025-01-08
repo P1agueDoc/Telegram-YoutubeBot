@@ -1,8 +1,9 @@
 # Telegram-YoutubeBot
 A bot to download whatever video you want (telegram set 50mb cap on files but bot will reduce quality if cap is reached)
 
-As always. Place bot toket in field:
 # Telegram bot setup
+
+As always. Place bot toket in field:
 TELEGRAM_BOT_TOKEN = ''
 
 (you need to open code and place token there, it should look like that: TELEGRAM_BOT_TOKEN = '9495rkvcl49gj48:404ivk4i4i4344x42dcv')
