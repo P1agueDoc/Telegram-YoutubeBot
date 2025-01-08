@@ -3,11 +3,24 @@ A bot to download whatever video you want (telegram set 50mb cap on files but bo
 
 # Telegram bot setup
 
-As always. Place bot toket in field:
+1 - Transfer files to one folder.
+
+2 - create env. python3 -m venv <virtual_env_name>
+
+3 - activate env. 
+windows - <virtual_env_name>\Scripts\activate
+Linux -   source <virtual_env_name>/bin/activate
+
+4 - pip install -r requirements.txt
+
+5 - Open code and as always, place bot toket in field:
 TELEGRAM_BOT_TOKEN = ''
 
-(you need to open code and place token there, it should look like that: TELEGRAM_BOT_TOKEN = '9495rkvcl49gj48:404ivk4i4i4344x42dcv')
+(it should look like that: TELEGRAM_BOT_TOKEN = '9495rkvcl49gj48:404ivk4i4i4344x42dcv')
 
+6 - python3 YouTube-Bot.py
+
+That's all.
 
 Also, if needed i can translate bot messages to ENG, currently it's RU but not realy problematic.
 
