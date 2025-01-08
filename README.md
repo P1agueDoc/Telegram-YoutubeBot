@@ -11,7 +11,8 @@ TELEGRAM_BOT_TOKEN = ''
 
 Also, if needed i can translate bot messages to ENG, currently it's RU but not realy problematic.
 
-How to use:
+#How to use
+
 write in chat where bot located: /video (url of your video)
 
 
