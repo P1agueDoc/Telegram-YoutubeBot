@@ -17,3 +17,10 @@ write in chat where bot located: /video (url of your video)
 
 
 Hope you like it! i'm still styding python and had to use some small parts of code from other people.
+
+Bot also can use cookies!!! Place Coockies.txt in folder with main code and you're good to go. It's mostly made so you could place bot on vps and use it without problems.
+
+# How to make cookies.txt
+
+in firefox - download extension coockies.txt. Go to youtube (you should be logged) and use extension (press on it) to download cookies from youtube.
+in chrome - use any other extension that does the job.
