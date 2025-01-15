@@ -16,6 +16,8 @@ Linux -   source <virtual_env_name>/bin/activate
 5 - Open code and as always, place bot toket in field:
 TELEGRAM_BOT_TOKEN = ''
 
+6 - Place cookies.txt into file where code located
+
 (it should look like that: TELEGRAM_BOT_TOKEN = '9495rkvcl49gj48:404ivk4i4i4344x42dcv')
 
 6 - python3 YouTube-Bot.py
