@@ -5,19 +5,17 @@ import re
 import urllib.parse
 
 def sanitize_filename(filename):
-    # Replace non-ASCII characters with underscores
     sanitized = re.sub(r'[^\x00-\x7F]+', '_', filename)
-    # Remove invalid characters for file paths
     sanitized = re.sub(r'[<>:"/\\|?*]', '_', sanitized)
     return sanitized
 
 def extract_video_id(url):
     parsed_url = urllib.parse.urlparse(url)
     if parsed_url.netloc == "youtu.be":
-        return parsed_url.path[1:]  # Extract video ID from short URL
+        return parsed_url.path[1:]
     elif parsed_url.netloc in ["www.youtube.com", "youtube.com"]:
         query = urllib.parse.parse_qs(parsed_url.query)
-        return query.get("v", [None])[0]  # Extract video ID from query parameter
+        return query.get("v", [None])[0] 
     return None
 
 def url_download(url, resolution="best[height<=1080]"):
@@ -73,7 +71,7 @@ def url_download(url, resolution="best[height<=1080]"):
     print("No file path found in yt-dlp output.")
     return None
 
-# Telegram bot setup
+#bot
 TELEGRAM_BOT_TOKEN = ''
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
 
@@ -96,7 +94,6 @@ def button_handler(message):
 
         print("Received URL:", url_vid)
 
-        # Check if the URL is part of a playlist
         is_playlist_url = "list=" in url_vid
         if is_playlist_url:
             bot.send_message(message.chat.id, "⚠️ Видео является частью плейлиста. Скачиваю только это видео...")
@@ -110,15 +107,15 @@ def button_handler(message):
 
         if video_path and os.path.exists(video_path):
             
-            file_size = os.path.getsize(video_path) / (1024 * 1024)  # Size in MB
+            file_size = os.path.getsize(video_path) / (1024 * 1024)  #MB
             print(f"Video size: {file_size:.2f} MB")
 
             
             bot.send_message(message.chat.id, f"📏 Размер видео: {file_size:.2f} MB\n🎥 Разрешение: 1080p")
 
-            if file_size > 50:  # Telegram's file size limit is 50 MB
+            if file_size > 50:
                 bot.send_message(message.chat.id, "⚠️ Видео слишком большое (>50 MB). Пробую понизить качество...")
-                # Try 720p
+                # 720p
                 resolution = "best[height<=720]"
                 bot.send_message(message.chat.id, f"🔄 Скачиваю видео в разрешении 720p...")
                 video_path = url_download(url_vid, resolution=resolution)
@@ -128,7 +125,7 @@ def button_handler(message):
                 
                 bot.send_message(message.chat.id, f"📏 Размер видео: {file_size:.2f} MB\n🎥 Разрешение: 720p")
 
-                if file_size > 50:  # If still too big, try 480p
+                if file_size > 50:  #480p
                     bot.send_message(message.chat.id, "⚠️ Видео всё ещё слишком большое. Пробую качество 480p...")
                     resolution = "best[height<=480]"
                     bot.send_message(message.chat.id, f"🔄 Скачиваю видео в разрешении 480p...")
@@ -139,18 +136,17 @@ def button_handler(message):
                     
                     bot.send_message(message.chat.id, f"📏 Размер видео: {file_size:.2f} MB\n🎥 Разрешение: 480p")
 
-                    if file_size > 50:  # If still too big, give up
+                    if file_size > 50:  #stop
                         bot.send_message(message.chat.id, "❌ Не удалось уменьшить размер видео. Пожалуйста, попробуйте другой URL.")
                         print("Video is still too large after lowering resolution.")
                         return
 
-            # Send the video
             try:
                 with open(video_path, 'rb') as video_file:
                     bot.send_video(message.chat.id, video_file)
                 print("Video sent successfully.")
             except Exception as e:
-                # Handle errors when sending the video
+
                 bot.send_message(message.chat.id, f"❌ Ошибка при отправке видео: {e}")
                 print(f"Error sending video: {e}")
         else:
