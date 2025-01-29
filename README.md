@@ -31,7 +31,7 @@ Also, if needed i can translate bot messages to ENG, currently it's RU but not r
 write in chat where bot located: /video (url of your video)
 
 
-Hope you like it! i'm still styding python and had to use some small parts of code from other people.
+Hope you like it! i'm still styding python.
 
 Bot also can use cookies!!! Place Coockies.txt in folder with main code and you're good to go. It's mostly made so you could place bot on vps and use it without problems.
 
