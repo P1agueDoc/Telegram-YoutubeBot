@@ -1,9 +1,9 @@
 # Telegram-YoutubeBot
-A bot to download whatever video you want (telegram set 50mb cap on files)
+A bot to download any video you want (telegram has a 50mb cap on files)
 
 # Telegram bot setup
 
-1 - Transfer files to one folder.
+1 - Transfer files into a folder.
 
 2 - create env. python3 -m venv <virtual_env_name>
 
@@ -13,27 +13,27 @@ Linux -   source <virtual_env_name>/bin/activate
 
 4 - pip install -r requirements.txt
 
-5 - Open code and as always, place bot toket in field:
+5 - Open .py and, as always, place bot token in the following field:
 TELEGRAM_BOT_TOKEN = ''
 
-6 - Place cookies.txt into file where code located
+6 - Create or Move cookies.txt into your bot folder
 
-(it should look like that: TELEGRAM_BOT_TOKEN = '9495rkvcl49gj48:404ivk4i4i4344x42dcv')
+(Example: TELEGRAM_BOT_TOKEN = '9495rkvcl49gj48:404ivk4i4i4344x42dcv')
 
 6 - python3 YouTube-Bot.py
 
 That's all.
 
-Also, if needed i can translate bot messages to ENG, currently it's RU but not realy problematic.
+If needed, I can translate the bot's messages to English. Currently, they are in Russian, but it's not really a problem.
 
 # How to use
 
-write in chat where bot located: /video (url of your video)
+Type: /video (url of your video)
 
 
-Hope you like it! i'm still styding python.
+Hope you like it! i'm still studying python.
 
-Bot also can use cookies!!! Place Coockies.txt in folder with main code and you're good to go. It's mostly made so you could place bot on vps and use it without problems.
+The bot supports cookies!!! Just place Cookies.txt in the same folder as the main code, and you're good to go. This is mostly useful if you want to host the bot on a VPS and use it without issues.
 
 # How to make cookies.txt
 
